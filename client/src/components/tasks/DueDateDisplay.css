@@ -1,0 +1,10 @@
+.due-date {
+  font-size: 13px;
+  color: var(--color-gray-500);
+  white-space: nowrap;
+}
+
+.due-date-overdue {
+  color: var(--color-danger);
+  font-weight: 600;
+}

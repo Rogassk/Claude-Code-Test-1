@@ -1,0 +1,7 @@
+import apiClient from './client';
+
+export const dashboardApi = {
+  getStats: () => apiClient.get('/dashboard/stats').then((r) => r.data),
+  getProductivity: (days = 30) =>
+    apiClient.get('/dashboard/productivity', { params: { days } }).then((r) => r.data),
+};

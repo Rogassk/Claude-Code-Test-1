@@ -1,0 +1,11 @@
+.task-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.task-filters .form-group {
+  min-width: 140px;
+  flex: 1;
+  max-width: 200px;
+}

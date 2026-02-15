@@ -1,0 +1,32 @@
+.dashboard-page {
+  max-width: 1000px;
+}
+
+.dashboard-greeting {
+  margin-bottom: 24px;
+}
+
+.dashboard-greeting h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.dashboard-greeting p {
+  font-size: 14px;
+  color: var(--color-gray-500);
+  margin-top: 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 480px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

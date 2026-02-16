@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Roadmap — TaskFlow AI</title>
+  <meta name="description" content="See what we've shipped, what's in progress, and what's coming next. Upvote features you care about most.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="roadmap.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="roadmap-page">
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="navbar rm-navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#6366F1"/>
+          <path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>TaskFlow <span class="logo-accent">AI</span></span>
+      </a>
+      <div class="rm-nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="roadmap.html" class="rm-nav-active">Roadmap</a>
+        <a href="/signup" class="btn btn-nav">Get Started Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="rm-header">
+    <div class="container">
+      <div class="rm-header-content">
+        <div class="rm-header-eyebrow">
+          <span class="rm-live-dot"></span>
+          Live Roadmap
+        </div>
+        <h1>What we're building <span class="gradient-text">next</span></h1>
+        <p class="rm-header-sub">
+          See what's shipped, what's in progress, and what's planned. Upvote features you care about — the most-requested ship first.
+        </p>
+        <div class="rm-header-meta" id="rmHeaderMeta">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== TOOLBAR ==================== -->
+  <div class="rm-toolbar" id="rmToolbar">
+    <div class="container rm-toolbar-inner">
+
+      <!-- Category filters -->
+      <div class="rm-filters" id="rmFilters" role="tablist" aria-label="Filter by category">
+        <button class="rm-filter rm-filter--active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <!-- Category buttons injected by JS -->
+      </div>
+
+      <!-- Sort + search -->
+      <div class="rm-toolbar-right">
+        <div class="rm-search-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" class="rm-search" id="rmSearch" placeholder="Search features…" aria-label="Search features">
+        </div>
+        <div class="rm-sort-wrap">
+          <label for="rmSort" class="sr-only">Sort by</label>
+          <select class="rm-sort" id="rmSort" aria-label="Sort features">
+            <option value="votes">Top voted</option>
+            <option value="newest">Newest first</option>
+            <option value="status">By status</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TIMELINE ==================== -->
+  <main class="rm-main" id="rmMain">
+    <div class="container rm-container">
+
+      <!-- Timeline rail (desktop) -->
+      <aside class="rm-rail" aria-hidden="true">
+        <div class="rm-rail-line"></div>
+        <!-- Quarter labels injected by JS -->
+      </aside>
+
+      <!-- Columns -->
+      <div class="rm-columns" id="rmColumns">
+
+        <!-- Shipped -->
+        <section class="rm-col" id="col-shipped" aria-label="Shipped features">
+          <div class="rm-col-header rm-col-header--shipped">
+            <div class="rm-col-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2>Shipped</h2>
+            <span class="rm-col-count" id="countShipped">0</span>
+          </div>
+          <div class="rm-cards" id="cardsShipped"></div>
+        </section>
+
+        <!-- In Progress -->
+        <section class="rm-col" id="col-in-progress" aria-label="In progress features">
+          <div class="rm-col-header rm-col-header--progress">
+            <div class="rm-col-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h2>In Progress</h2>
+            <span class="rm-col-count" id="countProgress">0</span>
+          </div>
+          <div class="rm-cards" id="cardsProgress"></div>
+        </section>
+
+        <!-- Planned -->
+        <section class="rm-col" id="col-planned" aria-label="Planned features">
+          <div class="rm-col-header rm-col-header--planned">
+            <div class="rm-col-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h2>Planned</h2>
+            <span class="rm-col-count" id="countPlanned">0</span>
+          </div>
+          <div class="rm-cards" id="cardsPlanned"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="rm-empty" id="rmEmpty" hidden>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <h3>No features found</h3>
+      <p>Try a different search term or category filter.</p>
+      <button class="btn btn-outline" id="rmClearFilters">Clear filters</button>
+    </div>
+  </main>
+
+  <!-- ==================== TOOLTIP ==================== -->
+  <div class="rm-tooltip" id="rmTooltip" role="tooltip" aria-hidden="true">
+    <div class="rm-tooltip-title" id="rmTooltipTitle"></div>
+    <div class="rm-tooltip-desc" id="rmTooltipDesc"></div>
+    <div class="rm-tooltip-meta">
+      <span class="rm-tooltip-eta" id="rmTooltipEta"></span>
+      <div class="rm-tooltip-tags" id="rmTooltipTags"></div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="rm-footer">
+    <div class="container rm-footer-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#6366F1"/>
+          <path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>TaskFlow <span class="logo-accent">AI</span></span>
+      </a>
+      <p class="rm-footer-note">Votes are stored locally in your browser. Updated weekly.</p>
+      <a href="/signup" class="btn btn-primary">Start Free Trial</a>
+    </div>
+  </footer>
+
+  <script src="roadmap.js"></script>
+</body>
+</html>

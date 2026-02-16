@@ -1,0 +1,186 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "title": "AI Task Prioritization",
+      "description": "Intelligent priority scoring based on deadlines, dependencies, team capacity, and historical patterns. The AI re-ranks your backlog automatically as conditions change.",
+      "status": "shipped",
+      "category": "AI",
+      "quarter": "Q3 2025",
+      "eta": "Shipped Sep 2025",
+      "initialVotes": 412,
+      "tags": ["productivity", "automation"]
+    },
+    {
+      "id": "feat-002",
+      "title": "Jira Two-Way Sync",
+      "description": "Full bidirectional sync with Jira Cloud and Server. Changes made in either tool propagate instantly. Supports Epics, Stories, Sprints, and custom fields.",
+      "status": "shipped",
+      "category": "Integrations",
+      "quarter": "Q3 2025",
+      "eta": "Shipped Aug 2025",
+      "initialVotes": 389,
+      "tags": ["sync", "import"]
+    },
+    {
+      "id": "feat-003",
+      "title": "iOS Native App",
+      "description": "Full-featured native iOS app with offline support, push notifications, Face ID authentication, and Siri Shortcuts integration for hands-free task management.",
+      "status": "shipped",
+      "category": "Mobile",
+      "quarter": "Q4 2025",
+      "eta": "Shipped Nov 2025",
+      "initialVotes": 521,
+      "tags": ["mobile", "offline"]
+    },
+    {
+      "id": "feat-004",
+      "title": "Advanced Analytics Dashboard",
+      "description": "Customizable dashboards with 30+ chart types, velocity tracking, burn-down charts, team performance heatmaps, and exportable PDF/CSV reports.",
+      "status": "shipped",
+      "category": "Analytics",
+      "quarter": "Q4 2025",
+      "eta": "Shipped Oct 2025",
+      "initialVotes": 298,
+      "tags": ["reporting", "insights"]
+    },
+    {
+      "id": "feat-005",
+      "title": "Slack Smart Notifications",
+      "description": "Context-aware Slack notifications that surface only what matters. AI filters notification noise and groups related updates into digest messages.",
+      "status": "shipped",
+      "category": "Integrations",
+      "quarter": "Q4 2025",
+      "eta": "Shipped Dec 2025",
+      "initialVotes": 267,
+      "tags": ["notifications", "slack"]
+    },
+    {
+      "id": "feat-006",
+      "title": "AI Meeting Summaries",
+      "description": "Connect your calendar and let TaskFlow AI transcribe, summarize, and automatically create action items from your meetings. Integrates with Zoom, Meet, and Teams.",
+      "status": "in-progress",
+      "category": "AI",
+      "quarter": "Q1 2026",
+      "eta": "Expected Feb 2026",
+      "initialVotes": 634,
+      "tags": ["meetings", "transcription"]
+    },
+    {
+      "id": "feat-007",
+      "title": "Android Native App",
+      "description": "Native Android app with Material You design, widget support, offline sync, and deep Android integration including share sheets and app shortcuts.",
+      "status": "in-progress",
+      "category": "Mobile",
+      "quarter": "Q1 2026",
+      "eta": "Expected Mar 2026",
+      "initialVotes": 448,
+      "tags": ["mobile", "android"]
+    },
+    {
+      "id": "feat-008",
+      "title": "GitHub PR Automation",
+      "description": "Automatically link PRs to tasks, update task status when PRs merge, track code review cycles, and generate release notes from completed tasks.",
+      "status": "in-progress",
+      "category": "Integrations",
+      "quarter": "Q1 2026",
+      "eta": "Expected Jan 2026",
+      "initialVotes": 376,
+      "tags": ["devtools", "github"]
+    },
+    {
+      "id": "feat-009",
+      "title": "No-Code Workflow Builder",
+      "description": "Visual drag-and-drop workflow automation builder. Create complex multi-step automations with conditions, branches, and delays — no code required.",
+      "status": "in-progress",
+      "category": "Platform",
+      "quarter": "Q1 2026",
+      "eta": "Expected Feb 2026",
+      "initialVotes": 312,
+      "tags": ["automation", "no-code"]
+    },
+    {
+      "id": "feat-010",
+      "title": "AI Project Forecasting",
+      "description": "Machine learning model trained on your team's historical velocity to predict project completion dates with confidence intervals and risk flags.",
+      "status": "planned",
+      "category": "AI",
+      "quarter": "Q2 2026",
+      "eta": "Expected Q2 2026",
+      "initialVotes": 587,
+      "tags": ["forecasting", "planning"]
+    },
+    {
+      "id": "feat-011",
+      "title": "Salesforce CRM Integration",
+      "description": "Sync deals, contacts, and activities between Salesforce and TaskFlow AI. Auto-create tasks from CRM events and keep sales and ops teams aligned.",
+      "status": "planned",
+      "category": "Integrations",
+      "quarter": "Q2 2026",
+      "eta": "Expected Q2 2026",
+      "initialVotes": 334,
+      "tags": ["crm", "sales"]
+    },
+    {
+      "id": "feat-012",
+      "title": "Team Capacity Planning",
+      "description": "Visual capacity heatmap showing team availability, workload distribution, and over-allocation warnings. Drag tasks to rebalance load in real-time.",
+      "status": "planned",
+      "category": "Analytics",
+      "quarter": "Q2 2026",
+      "eta": "Expected Q2 2026",
+      "initialVotes": 423,
+      "tags": ["planning", "resource"]
+    },
+    {
+      "id": "feat-013",
+      "title": "Offline Mobile Mode",
+      "description": "Full offline functionality for iOS and Android — create, edit, and complete tasks without internet. Smart conflict resolution when reconnecting.",
+      "status": "planned",
+      "category": "Mobile",
+      "quarter": "Q3 2026",
+      "eta": "Expected Q3 2026",
+      "initialVotes": 289,
+      "tags": ["offline", "sync"]
+    },
+    {
+      "id": "feat-014",
+      "title": "Custom AI Model Fine-Tuning",
+      "description": "Enterprise feature to fine-tune TaskFlow's AI on your team's specific domain, terminology, and workflows for dramatically improved suggestions.",
+      "status": "planned",
+      "category": "AI",
+      "quarter": "Q3 2026",
+      "eta": "Expected Q3 2026",
+      "initialVotes": 498,
+      "tags": ["enterprise", "llm"]
+    },
+    {
+      "id": "feat-015",
+      "title": "Public API v2",
+      "description": "Redesigned REST + GraphQL API with webhooks, rate limit increases, SDK libraries for Python/Node/Go, and a developer sandbox environment.",
+      "status": "planned",
+      "category": "Platform",
+      "quarter": "Q2 2026",
+      "eta": "Expected Q2 2026",
+      "initialVotes": 356,
+      "tags": ["api", "developers"]
+    },
+    {
+      "id": "feat-016",
+      "title": "Figma Design Sync",
+      "description": "Link Figma frames to tasks, track design-to-dev handoff status, get notified when designs update, and embed live Figma previews in task detail views.",
+      "status": "planned",
+      "category": "Integrations",
+      "quarter": "Q3 2026",
+      "eta": "Expected Q3 2026",
+      "initialVotes": 271,
+      "tags": ["design", "figma"]
+    }
+  ],
+  "categories": ["AI", "Integrations", "Mobile", "Analytics", "Platform"],
+  "statuses": {
+    "shipped":     { "label": "Shipped",     "color": "#10B981" },
+    "in-progress": { "label": "In Progress", "color": "#6366F1" },
+    "planned":     { "label": "Planned",     "color": "#94A3B8" }
+  }
+}

@@ -44,8 +44,8 @@
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero">
     <div class="container hero-container">
-      <div class="hero-content">
-        <div class="hero-badge">Trusted by 10,000+ teams worldwide</div>
+      <div class="hero-content" data-reveal="slide-left">
+        <div class="hero-badge">Trusted by <span class="count-up" data-count-to="10000" data-count-suffix="+">0+</span> teams worldwide</div>
         <h1>Your workflow,<br><span class="gradient-text">supercharged by AI.</span></h1>
         <p class="hero-subtitle">
           TaskFlow AI automates your workflow, prioritizes your tasks, and keeps
@@ -64,11 +64,11 @@
             <img src="https://placehold.co/40x40/6D28D9/white?text=E" alt="Avatar of user E" class="avatar" width="40" height="40">
           </div>
           <div class="hero-proof-text">
-            <strong>4.9/5</strong> from 2,400+ reviews
+            <strong><span class="count-up" data-count-to="4.9" data-count-decimals="1">0</span>/5</strong> from <span class="count-up" data-count-to="2400" data-count-suffix="+">0+</span> reviews
           </div>
         </div>
       </div>
-      <div class="hero-visual">
+      <div class="hero-visual" data-reveal="slide-right" data-parallax="0.15">
         <img
           src="https://placehold.co/600x420/EEF2FF/6366F1?text=TaskFlow+AI+Dashboard"
           alt="TaskFlow AI dashboard showing task management interface with AI-powered suggestions"
@@ -94,6 +94,34 @@
     </div>
   </section>
 
+  <!-- ==================== METRICS STRIP ==================== -->
+  <section class="metrics-strip">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="10000" data-count-suffix="+">0+</span>
+          <span class="metric-label">Teams Worldwide</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="92"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="2" data-count-suffix="M+">0M+</span>
+          <span class="metric-label">Tasks Completed</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="87"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</span>
+          <span class="metric-label">Uptime Guarantee</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="99"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="4.9" data-count-suffix="/5" data-count-decimals="1">0/5</span>
+          <span class="metric-label">Average Rating</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="98"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== FEATURES ==================== -->
   <section class="features" id="features">
     <div class="container">
@@ -103,7 +131,7 @@
         <p>TaskFlow AI combines intelligent automation with intuitive design to transform how your team gets things done.</p>
       </div>
 
-      <div class="features-grid">
+      <div class="features-grid" data-stagger>
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -165,7 +193,7 @@
         <p>Getting started with TaskFlow AI is fast and straightforward. No complex setup, no lengthy onboarding.</p>
       </div>
 
-      <div class="steps-grid">
+      <div class="steps-grid" data-stagger>
         <div class="step-card">
           <div class="step-number">1</div>
           <div class="step-visual">
@@ -830,7 +858,7 @@
         <p>See what our customers have to say about transforming their workflow with TaskFlow AI.</p>
       </div>
 
-      <div class="testimonials-grid">
+      <div class="testimonials-grid" data-stagger>
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#F59E0B" aria-hidden="true"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.51.91-5.33L2.27 6.7l5.34-.78L10 1z"/></svg>
@@ -903,7 +931,7 @@
         <p>No hidden fees. No long-term contracts. Start free and scale when you're ready.</p>
       </div>
 
-      <div class="pricing-grid">
+      <div class="pricing-grid" data-stagger>
         <div class="pricing-card">
           <div class="pricing-header">
             <h3>Starter</h3>
@@ -1065,7 +1093,7 @@
     <div class="container">
       <div class="cta-card">
         <h2>Ready to transform your workflow?</h2>
-        <p>Join 10,000+ teams already using TaskFlow AI to ship faster and work smarter. Start your free trial today.</p>
+        <p>Join <span class="count-up" data-count-to="10000" data-count-suffix="+">0+</span> teams already using TaskFlow AI to ship faster and work smarter. Start your free trial today.</p>
         <div class="cta-actions">
           <a href="/signup" class="btn btn-white btn-lg">Start Free Trial</a>
           <a href="#" class="btn btn-ghost btn-lg">Schedule a Demo</a>

@@ -1827,17 +1827,135 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================
+   METRICS STRIP
+   ============================ */
+.metrics-strip {
+  padding: var(--space-16) 0;
+  background: var(--color-white);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+.metric {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.metric-value {
+  display: block;
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--color-gray-900);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metric-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-4);
+}
+
+.metric-bar {
+  height: 4px;
+  background: var(--color-gray-100);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--gradient-primary);
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.metric-bar-fill.scroll-filled {
+  width: var(--fill-target);
+}
+
+/* ============================
    ANIMATIONS (scroll-reveal)
    ============================ */
+
+/* Default: fade up */
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Slide from left */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children — delay applied via JS using CSS custom property */
+[data-stagger] > * {
+  transition-delay: var(--stagger-delay, 0ms);
+}
+
+/* Counter number — tabular figures for smooth transitions */
+.count-up {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Parallax will be applied via JS transform */
+[data-parallax] {
+  will-change: transform;
 }
 
 /* ============================
@@ -1891,6 +2009,11 @@ h1, h2, h3, h4, h5, h6 {
 
   .pricing-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6);
   }
 
@@ -1979,6 +2102,19 @@ h1, h2, h3, h4, h5, h6 {
 
   .pricing-card--popular:hover {
     transform: translateY(-4px);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .metric {
+    padding: var(--space-4);
+  }
+
+  .metric-value {
+    font-size: var(--font-size-3xl);
   }
 
   /* Demo section mobile */
@@ -2121,7 +2257,8 @@ h1, h2, h3, h4, h5, h6 {
   .testimonials,
   .pricing,
   .faq,
-  .cta-section {
+  .cta-section,
+  .metrics-strip {
     padding: var(--space-16) 0;
   }
 

@@ -931,17 +931,95 @@
         <p>No hidden fees. No long-term contracts. Start free and scale when you're ready.</p>
       </div>
 
+      <!-- Pricing Calculator Controls -->
+      <div class="pricing-calculator" data-reveal="fade">
+
+        <!-- Billing Toggle -->
+        <div class="pricing-controls">
+          <div class="billing-toggle">
+            <span class="billing-label" id="labelMonthly">Monthly</span>
+            <button class="billing-switch" id="billingSwitch" role="switch" aria-checked="false" aria-label="Toggle annual billing">
+              <span class="billing-switch-thumb"></span>
+            </button>
+            <span class="billing-label" id="labelAnnual">
+              Annual
+              <span class="billing-save-badge" id="billingSaveBadge">Save 20%</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- User Slider -->
+        <div class="pricing-slider-section">
+          <div class="pricing-slider-header">
+            <label for="userSlider" class="pricing-slider-label">Team size</label>
+            <div class="pricing-slider-value">
+              <span id="userCountDisplay">25</span>
+              <span class="pricing-slider-unit">users</span>
+            </div>
+          </div>
+          <div class="pricing-slider-track-wrapper">
+            <input
+              type="range"
+              id="userSlider"
+              class="pricing-slider"
+              min="1"
+              max="500"
+              value="25"
+              step="1"
+              aria-label="Number of users"
+            >
+            <div class="pricing-slider-markers">
+              <span>1</span>
+              <span>50</span>
+              <span>100</span>
+              <span>250</span>
+              <span>500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Bar -->
+        <div class="pricing-summary" id="pricingSummary">
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Users</span>
+            <span class="pricing-summary-val" id="summaryUsers">25</span>
+          </div>
+          <div class="pricing-summary-divider"></div>
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Total / month</span>
+            <span class="pricing-summary-val" id="summaryTotal">$600</span>
+          </div>
+          <div class="pricing-summary-divider"></div>
+          <div class="pricing-summary-item pricing-summary-item--savings" id="summaryAnnualSavingsGroup">
+            <span class="pricing-summary-label">Annual savings</span>
+            <span class="pricing-summary-val pricing-summary-val--green" id="summaryAnnualSavings">$1,440</span>
+          </div>
+          <div class="pricing-summary-divider" id="summaryDivider3"></div>
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Per-user / month</span>
+            <span class="pricing-summary-val" id="summaryPerUser">$24</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Cards -->
       <div class="pricing-grid" data-stagger>
-        <div class="pricing-card">
+
+        <!-- Starter -->
+        <div class="pricing-card" id="cardStarter">
+          <div class="pricing-recommended" id="recStarter" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Starter</h3>
             <p class="pricing-desc">For individuals and small teams getting started.</p>
             <div class="pricing-amount">
-              <span class="price">$0</span>
-              <span class="period">/month</span>
+              <span class="price" id="priceStarter">Free</span>
+              <span class="period" id="periodStarter"></span>
+            </div>
+            <div class="pricing-totals" id="totalsStarter">
+              <span class="pricing-total-line" id="totalLineStarter">Up to 5 users, forever free</span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresStarter">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Up to 5 team members
@@ -956,23 +1034,33 @@
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              5 GB storage
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Community support
             </li>
           </ul>
           <a href="/signup" class="btn btn-outline btn-block">Get Started Free</a>
         </div>
 
-        <div class="pricing-card pricing-card--popular">
-          <div class="pricing-badge">Most Popular</div>
+        <!-- Pro -->
+        <div class="pricing-card pricing-card--popular" id="cardPro">
+          <div class="pricing-badge" id="badgePro">Most Popular</div>
+          <div class="pricing-recommended" id="recPro" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Pro</h3>
             <p class="pricing-desc">For growing teams that need more power.</p>
             <div class="pricing-amount">
-              <span class="price">$24</span>
-              <span class="period">/user/month</span>
+              <span class="price" id="pricePro">$24</span>
+              <span class="period" id="periodPro">/user/month</span>
+            </div>
+            <div class="pricing-totals" id="totalsPro">
+              <span class="pricing-total-line" id="totalLinePro">$600 / month total</span>
+              <span class="pricing-savings-line" id="savingsLinePro"></span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresPro">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Unlimited team members
@@ -987,28 +1075,46 @@
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              100 GB storage
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Priority email support
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Advanced analytics dashboard
             </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              200+ integrations
+            </li>
           </ul>
           <a href="/signup" class="btn btn-primary btn-block">Start Free Trial</a>
         </div>
 
-        <div class="pricing-card">
+        <!-- Enterprise -->
+        <div class="pricing-card" id="cardEnterprise">
+          <div class="pricing-recommended" id="recEnterprise" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Enterprise</h3>
             <p class="pricing-desc">For large organizations with custom needs.</p>
             <div class="pricing-amount">
-              <span class="price">Custom</span>
+              <span class="price" id="priceEnterprise">Custom</span>
+              <span class="period" id="periodEnterprise"></span>
+            </div>
+            <div class="pricing-totals" id="totalsEnterprise">
+              <span class="pricing-total-line" id="totalLineEnterprise">Tailored to your organization</span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresEnterprise">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Everything in Pro
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Unlimited storage
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1025,6 +1131,10 @@
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               99.99% uptime SLA
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              On-premise deployment option
             </li>
           </ul>
           <a href="#cta" class="btn btn-outline btn-block">Contact Sales</a>

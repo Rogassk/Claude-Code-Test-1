@@ -32,6 +32,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#product-demo">Demo</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -209,6 +210,616 @@
       </div>
     </div>
   </section>
+
+  <!-- ==================== PRODUCT DEMO ==================== -->
+  <section class="product-demo" id="product-demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Live Demo</span>
+        <h2>See TaskFlow AI <span class="gradient-text">in action</span></h2>
+        <p>Explore our interactive dashboard. Click around, switch views, and experience the power of AI-driven task management.</p>
+      </div>
+
+      <div class="demo-window">
+        <div class="demo-titlebar">
+          <div class="demo-titlebar-dots">
+            <span class="demo-dot demo-dot--red"></span>
+            <span class="demo-dot demo-dot--yellow"></span>
+            <span class="demo-dot demo-dot--green"></span>
+          </div>
+          <div class="demo-titlebar-title">TaskFlow AI — Dashboard</div>
+          <div class="demo-titlebar-spacer"></div>
+        </div>
+
+        <div class="demo-body">
+          <!-- Sidebar -->
+          <aside class="demo-sidebar">
+            <div class="demo-sidebar-logo">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#6366F1"/>
+                <path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>TaskFlow</span>
+            </div>
+            <nav class="demo-sidebar-nav">
+              <button class="demo-sidebar-link demo-sidebar-link--active" data-demo-tab="tasks">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Tasks
+              </button>
+              <button class="demo-sidebar-link" data-demo-tab="calendar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Calendar
+              </button>
+              <button class="demo-sidebar-link" data-demo-tab="analytics">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                Analytics
+              </button>
+            </nav>
+            <div class="demo-sidebar-user">
+              <div class="demo-sidebar-avatar">JD</div>
+              <div class="demo-sidebar-userinfo">
+                <span class="demo-sidebar-username">Jane Doe</span>
+                <span class="demo-sidebar-userrole">Pro Plan</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main content area -->
+          <main class="demo-main">
+            <!-- TASKS VIEW -->
+            <div class="demo-view demo-view--active" id="demo-tasks">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">My Tasks</h3>
+                <div class="demo-topbar-actions">
+                  <div class="demo-search">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Search tasks...</span>
+                  </div>
+                  <button class="demo-btn-add">+ New Task</button>
+                </div>
+              </div>
+
+              <div class="demo-stats-row">
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--total">24</span>
+                  <span class="demo-stat-label">Total</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--progress">8</span>
+                  <span class="demo-stat-label">In Progress</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--done">14</span>
+                  <span class="demo-stat-label">Completed</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--urgent">2</span>
+                  <span class="demo-stat-label">Urgent</span>
+                </div>
+              </div>
+
+              <div class="demo-task-list">
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Design new onboarding flow</span>
+                    <span class="demo-task-meta">Due tomorrow &middot; Design</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--high">High</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Review API documentation</span>
+                    <span class="demo-task-meta">Due Wed &middot; Engineering</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--medium">Medium</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Set up CI/CD pipeline</span>
+                    <span class="demo-task-meta">Due Thu &middot; DevOps</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--urgent">Urgent</span>
+                </div>
+                <div class="demo-task demo-task--completed" data-interactive>
+                  <button class="demo-task-check demo-task-check--done" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Update user authentication</span>
+                    <span class="demo-task-meta">Completed &middot; Security</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--medium">Medium</span>
+                </div>
+                <div class="demo-task demo-task--completed" data-interactive>
+                  <button class="demo-task-check demo-task-check--done" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Write quarterly report</span>
+                    <span class="demo-task-meta">Completed &middot; Management</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--low">Low</span>
+                </div>
+              </div>
+
+              <div class="demo-ai-suggestion">
+                <div class="demo-ai-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><path d="M8.56 14h6.88"/><path d="M9.34 18h5.32"/></svg>
+                </div>
+                <p><strong>AI Suggestion:</strong> Move &ldquo;Set up CI/CD pipeline&rdquo; to top priority &mdash; it blocks 3 other tasks.</p>
+              </div>
+            </div>
+
+            <!-- CALENDAR VIEW -->
+            <div class="demo-view" id="demo-calendar">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">Calendar</h3>
+                <div class="demo-topbar-actions">
+                  <span class="demo-calendar-month">February 2026</span>
+                </div>
+              </div>
+
+              <div class="demo-calendar-grid">
+                <div class="demo-cal-header">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div class="demo-cal-body">
+                  <div class="demo-cal-day demo-cal-day--other">26</div>
+                  <div class="demo-cal-day demo-cal-day--other">27</div>
+                  <div class="demo-cal-day demo-cal-day--other">28</div>
+                  <div class="demo-cal-day demo-cal-day--other">29</div>
+                  <div class="demo-cal-day demo-cal-day--other">30</div>
+                  <div class="demo-cal-day demo-cal-day--other">31</div>
+                  <div class="demo-cal-day">1</div>
+                  <div class="demo-cal-day">2</div>
+                  <div class="demo-cal-day">3</div>
+                  <div class="demo-cal-day">4</div>
+                  <div class="demo-cal-day">5</div>
+                  <div class="demo-cal-day">6</div>
+                  <div class="demo-cal-day">7</div>
+                  <div class="demo-cal-day">8</div>
+                  <div class="demo-cal-day">9</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">10
+                    <span class="demo-cal-event demo-cal-event--blue">Sprint Review</span>
+                  </div>
+                  <div class="demo-cal-day">11</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">12
+                    <span class="demo-cal-event demo-cal-event--purple">Design Sync</span>
+                  </div>
+                  <div class="demo-cal-day">13</div>
+                  <div class="demo-cal-day">14</div>
+                  <div class="demo-cal-day">15</div>
+                  <div class="demo-cal-day demo-cal-day--today demo-cal-day--has-event">16
+                    <span class="demo-cal-event demo-cal-event--blue">Team Standup</span>
+                  </div>
+                  <div class="demo-cal-day demo-cal-day--has-event">17
+                    <span class="demo-cal-event demo-cal-event--red">CI/CD Deadline</span>
+                  </div>
+                  <div class="demo-cal-day demo-cal-day--has-event">18
+                    <span class="demo-cal-event demo-cal-event--purple">API Review</span>
+                  </div>
+                  <div class="demo-cal-day">19</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">20
+                    <span class="demo-cal-event demo-cal-event--green">Launch Prep</span>
+                  </div>
+                  <div class="demo-cal-day">21</div>
+                  <div class="demo-cal-day">22</div>
+                  <div class="demo-cal-day">23</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">24
+                    <span class="demo-cal-event demo-cal-event--blue">Sprint Planning</span>
+                  </div>
+                  <div class="demo-cal-day">25</div>
+                  <div class="demo-cal-day">26</div>
+                  <div class="demo-cal-day">27</div>
+                  <div class="demo-cal-day">28</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ANALYTICS VIEW -->
+            <div class="demo-view" id="demo-analytics">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">Analytics</h3>
+                <div class="demo-topbar-actions">
+                  <span class="demo-analytics-range">Last 7 days</span>
+                </div>
+              </div>
+
+              <div class="demo-analytics-stats">
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Tasks Completed</span>
+                  <span class="demo-analytics-card-value">142</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--up">+12%</span>
+                </div>
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Team Velocity</span>
+                  <span class="demo-analytics-card-value">89</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--up">+5%</span>
+                </div>
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Avg. Completion</span>
+                  <span class="demo-analytics-card-value">2.3d</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--down">-18%</span>
+                </div>
+              </div>
+
+              <div class="demo-chart-container">
+                <h4 class="demo-chart-title">Productivity Trend</h4>
+                <div class="demo-chart">
+                  <div class="demo-chart-bar-group">
+                    <div class="demo-chart-bar" data-height="40"><span class="demo-chart-bar-label">Mon</span></div>
+                    <div class="demo-chart-bar" data-height="65"><span class="demo-chart-bar-label">Tue</span></div>
+                    <div class="demo-chart-bar" data-height="50"><span class="demo-chart-bar-label">Wed</span></div>
+                    <div class="demo-chart-bar" data-height="80"><span class="demo-chart-bar-label">Thu</span></div>
+                    <div class="demo-chart-bar" data-height="70"><span class="demo-chart-bar-label">Fri</span></div>
+                    <div class="demo-chart-bar" data-height="30"><span class="demo-chart-bar-label">Sat</span></div>
+                    <div class="demo-chart-bar" data-height="20"><span class="demo-chart-bar-label">Sun</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-breakdown">
+                <h4 class="demo-chart-title">By Category</h4>
+                <div class="demo-breakdown-items">
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#6366F1"></span>
+                      <span>Engineering</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="72" style="background:#6366F1"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">72%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#8B5CF6"></span>
+                      <span>Design</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="54" style="background:#8B5CF6"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">54%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#EC4899"></span>
+                      <span>Marketing</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="38" style="background:#EC4899"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">38%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#10B981"></span>
+                      <span>DevOps</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="45" style="background:#10B981"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">45%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+
+      <div class="demo-cta-wrapper">
+        <button class="btn btn-primary btn-lg" id="openDemoModal">Try Interactive Demo</button>
+        <p class="demo-cta-hint">No sign-up required &mdash; explore the full experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEMO MODAL ==================== -->
+  <div class="demo-modal-overlay" id="demoModal" aria-hidden="true">
+    <div class="demo-modal">
+      <button class="demo-modal-close" id="closeDemoModal" aria-label="Close demo modal">&times;</button>
+
+      <div class="demo-modal-window">
+        <div class="demo-titlebar">
+          <div class="demo-titlebar-dots">
+            <span class="demo-dot demo-dot--red"></span>
+            <span class="demo-dot demo-dot--yellow"></span>
+            <span class="demo-dot demo-dot--green"></span>
+          </div>
+          <div class="demo-titlebar-title">TaskFlow AI — Full Demo</div>
+          <div class="demo-titlebar-spacer"></div>
+        </div>
+
+        <div class="demo-body demo-body--modal">
+          <aside class="demo-sidebar">
+            <div class="demo-sidebar-logo">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#6366F1"/>
+                <path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>TaskFlow</span>
+            </div>
+            <nav class="demo-sidebar-nav">
+              <button class="demo-sidebar-link demo-sidebar-link--active" data-modal-tab="modal-tasks">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Tasks
+              </button>
+              <button class="demo-sidebar-link" data-modal-tab="modal-calendar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Calendar
+              </button>
+              <button class="demo-sidebar-link" data-modal-tab="modal-analytics">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                Analytics
+              </button>
+            </nav>
+            <div class="demo-sidebar-user">
+              <div class="demo-sidebar-avatar">JD</div>
+              <div class="demo-sidebar-userinfo">
+                <span class="demo-sidebar-username">Jane Doe</span>
+                <span class="demo-sidebar-userrole">Pro Plan</span>
+              </div>
+            </div>
+          </aside>
+
+          <main class="demo-main">
+            <!-- MODAL TASKS VIEW -->
+            <div class="demo-view demo-view--active" id="modal-tasks">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">My Tasks</h3>
+                <div class="demo-topbar-actions">
+                  <div class="demo-search">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Search tasks...</span>
+                  </div>
+                  <button class="demo-btn-add" id="modalAddTask">+ New Task</button>
+                </div>
+              </div>
+
+              <div class="demo-stats-row">
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--total" id="modalStatTotal">24</span>
+                  <span class="demo-stat-label">Total</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--progress" id="modalStatProgress">8</span>
+                  <span class="demo-stat-label">In Progress</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--done" id="modalStatDone">14</span>
+                  <span class="demo-stat-label">Completed</span>
+                </div>
+                <div class="demo-stat-chip">
+                  <span class="demo-stat-number demo-stat-number--urgent" id="modalStatUrgent">2</span>
+                  <span class="demo-stat-label">Urgent</span>
+                </div>
+              </div>
+
+              <div class="demo-task-list" id="modalTaskList">
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Design new onboarding flow</span>
+                    <span class="demo-task-meta">Due tomorrow &middot; Design</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--high">High</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Review API documentation</span>
+                    <span class="demo-task-meta">Due Wed &middot; Engineering</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--medium">Medium</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Set up CI/CD pipeline</span>
+                    <span class="demo-task-meta">Due Thu &middot; DevOps</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--urgent">Urgent</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Prepare marketing campaign</span>
+                    <span class="demo-task-meta">Due Fri &middot; Marketing</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--medium">Medium</span>
+                </div>
+                <div class="demo-task" data-interactive>
+                  <button class="demo-task-check" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Database migration planning</span>
+                    <span class="demo-task-meta">Due next Mon &middot; Engineering</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--high">High</span>
+                </div>
+                <div class="demo-task demo-task--completed" data-interactive>
+                  <button class="demo-task-check demo-task-check--done" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Update user authentication</span>
+                    <span class="demo-task-meta">Completed &middot; Security</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--medium">Medium</span>
+                </div>
+                <div class="demo-task demo-task--completed" data-interactive>
+                  <button class="demo-task-check demo-task-check--done" aria-label="Toggle task completion"></button>
+                  <div class="demo-task-content">
+                    <span class="demo-task-title">Write quarterly report</span>
+                    <span class="demo-task-meta">Completed &middot; Management</span>
+                  </div>
+                  <span class="demo-task-priority demo-task-priority--low">Low</span>
+                </div>
+              </div>
+
+              <div class="demo-ai-suggestion">
+                <div class="demo-ai-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><path d="M8.56 14h6.88"/><path d="M9.34 18h5.32"/></svg>
+                </div>
+                <p><strong>AI Suggestion:</strong> Move &ldquo;Set up CI/CD pipeline&rdquo; to top priority &mdash; it blocks 3 other tasks.</p>
+              </div>
+            </div>
+
+            <!-- MODAL CALENDAR VIEW -->
+            <div class="demo-view" id="modal-calendar">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">Calendar</h3>
+                <div class="demo-topbar-actions">
+                  <span class="demo-calendar-month">February 2026</span>
+                </div>
+              </div>
+              <div class="demo-calendar-grid">
+                <div class="demo-cal-header">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div class="demo-cal-body">
+                  <div class="demo-cal-day demo-cal-day--other">26</div>
+                  <div class="demo-cal-day demo-cal-day--other">27</div>
+                  <div class="demo-cal-day demo-cal-day--other">28</div>
+                  <div class="demo-cal-day demo-cal-day--other">29</div>
+                  <div class="demo-cal-day demo-cal-day--other">30</div>
+                  <div class="demo-cal-day demo-cal-day--other">31</div>
+                  <div class="demo-cal-day">1</div>
+                  <div class="demo-cal-day">2</div>
+                  <div class="demo-cal-day">3</div>
+                  <div class="demo-cal-day">4</div>
+                  <div class="demo-cal-day">5</div>
+                  <div class="demo-cal-day">6</div>
+                  <div class="demo-cal-day">7</div>
+                  <div class="demo-cal-day">8</div>
+                  <div class="demo-cal-day">9</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">10
+                    <span class="demo-cal-event demo-cal-event--blue">Sprint Review</span>
+                  </div>
+                  <div class="demo-cal-day">11</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">12
+                    <span class="demo-cal-event demo-cal-event--purple">Design Sync</span>
+                  </div>
+                  <div class="demo-cal-day">13</div>
+                  <div class="demo-cal-day">14</div>
+                  <div class="demo-cal-day">15</div>
+                  <div class="demo-cal-day demo-cal-day--today demo-cal-day--has-event">16
+                    <span class="demo-cal-event demo-cal-event--blue">Team Standup</span>
+                  </div>
+                  <div class="demo-cal-day demo-cal-day--has-event">17
+                    <span class="demo-cal-event demo-cal-event--red">CI/CD Deadline</span>
+                  </div>
+                  <div class="demo-cal-day demo-cal-day--has-event">18
+                    <span class="demo-cal-event demo-cal-event--purple">API Review</span>
+                  </div>
+                  <div class="demo-cal-day">19</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">20
+                    <span class="demo-cal-event demo-cal-event--green">Launch Prep</span>
+                  </div>
+                  <div class="demo-cal-day">21</div>
+                  <div class="demo-cal-day">22</div>
+                  <div class="demo-cal-day">23</div>
+                  <div class="demo-cal-day demo-cal-day--has-event">24
+                    <span class="demo-cal-event demo-cal-event--blue">Sprint Planning</span>
+                  </div>
+                  <div class="demo-cal-day">25</div>
+                  <div class="demo-cal-day">26</div>
+                  <div class="demo-cal-day">27</div>
+                  <div class="demo-cal-day">28</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MODAL ANALYTICS VIEW -->
+            <div class="demo-view" id="modal-analytics">
+              <div class="demo-topbar">
+                <h3 class="demo-topbar-title">Analytics</h3>
+                <div class="demo-topbar-actions">
+                  <span class="demo-analytics-range">Last 7 days</span>
+                </div>
+              </div>
+
+              <div class="demo-analytics-stats">
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Tasks Completed</span>
+                  <span class="demo-analytics-card-value">142</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--up">+12%</span>
+                </div>
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Team Velocity</span>
+                  <span class="demo-analytics-card-value">89</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--up">+5%</span>
+                </div>
+                <div class="demo-analytics-card">
+                  <span class="demo-analytics-card-label">Avg. Completion</span>
+                  <span class="demo-analytics-card-value">2.3d</span>
+                  <span class="demo-analytics-card-change demo-analytics-card-change--down">-18%</span>
+                </div>
+              </div>
+
+              <div class="demo-chart-container">
+                <h4 class="demo-chart-title">Productivity Trend</h4>
+                <div class="demo-chart">
+                  <div class="demo-chart-bar-group">
+                    <div class="demo-chart-bar" data-height="40"><span class="demo-chart-bar-label">Mon</span></div>
+                    <div class="demo-chart-bar" data-height="65"><span class="demo-chart-bar-label">Tue</span></div>
+                    <div class="demo-chart-bar" data-height="50"><span class="demo-chart-bar-label">Wed</span></div>
+                    <div class="demo-chart-bar" data-height="80"><span class="demo-chart-bar-label">Thu</span></div>
+                    <div class="demo-chart-bar" data-height="70"><span class="demo-chart-bar-label">Fri</span></div>
+                    <div class="demo-chart-bar" data-height="30"><span class="demo-chart-bar-label">Sat</span></div>
+                    <div class="demo-chart-bar" data-height="20"><span class="demo-chart-bar-label">Sun</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-breakdown">
+                <h4 class="demo-chart-title">By Category</h4>
+                <div class="demo-breakdown-items">
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#6366F1"></span>
+                      <span>Engineering</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="72" style="background:#6366F1"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">72%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#8B5CF6"></span>
+                      <span>Design</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="54" style="background:#8B5CF6"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">54%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#EC4899"></span>
+                      <span>Marketing</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="38" style="background:#EC4899"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">38%</span>
+                  </div>
+                  <div class="demo-breakdown-item">
+                    <div class="demo-breakdown-info">
+                      <span class="demo-breakdown-dot" style="background:#10B981"></span>
+                      <span>DevOps</span>
+                    </div>
+                    <div class="demo-breakdown-bar-track">
+                      <div class="demo-breakdown-bar-fill" data-width="45" style="background:#10B981"></div>
+                    </div>
+                    <span class="demo-breakdown-pct">45%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== TESTIMONIALS ==================== -->
   <section class="testimonials" id="testimonials">

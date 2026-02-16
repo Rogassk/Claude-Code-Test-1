@@ -38,8 +38,19 @@
     });
   });
 
-  // ---- Scroll-reveal animation ----
-  // Add .fade-in to all animatable elements
+  // ---- Scroll-reveal animation (enhanced) ----
+
+  // Elements with directional reveals via data-reveal attribute
+  var directionalEls = document.querySelectorAll('[data-reveal]');
+  directionalEls.forEach(function (el) {
+    var direction = el.getAttribute('data-reveal');
+    if (direction === 'slide-left') el.classList.add('reveal-slide-left');
+    else if (direction === 'slide-right') el.classList.add('reveal-slide-right');
+    else if (direction === 'scale') el.classList.add('reveal-scale');
+    else el.classList.add('fade-in');
+  });
+
+  // Standard fade-in elements (not already handled by data-reveal)
   var animatableSelectors = [
     '.feature-card',
     '.step-card',
@@ -47,25 +58,42 @@
     '.pricing-card',
     '.faq-item',
     '.section-header',
-    '.hero-content',
-    '.hero-visual',
     '.demo-window',
     '.demo-cta-wrapper',
     '.cta-card',
+    '.metric',
   ];
 
   var animatables = document.querySelectorAll(animatableSelectors.join(','));
 
   animatables.forEach(function (el) {
-    el.classList.add('fade-in');
+    if (!el.classList.contains('reveal-slide-left') &&
+        !el.classList.contains('reveal-slide-right') &&
+        !el.classList.contains('reveal-scale')) {
+      el.classList.add('fade-in');
+    }
   });
 
-  var observer = new IntersectionObserver(
+  // Stagger children — apply incremental delays
+  var staggerContainers = document.querySelectorAll('[data-stagger]');
+  staggerContainers.forEach(function (container) {
+    var children = container.children;
+    for (var i = 0; i < children.length; i++) {
+      children[i].style.setProperty('--stagger-delay', (i * 100) + 'ms');
+    }
+  });
+
+  // Unified reveal observer
+  var allRevealEls = document.querySelectorAll(
+    '.fade-in, .reveal-slide-left, .reveal-slide-right, .reveal-scale'
+  );
+
+  var revealObserver = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
@@ -75,9 +103,119 @@
     }
   );
 
-  animatables.forEach(function (el) {
-    observer.observe(el);
+  allRevealEls.forEach(function (el) {
+    revealObserver.observe(el);
   });
+
+  // ---- Hero parallax ----
+  var parallaxEls = document.querySelectorAll('[data-parallax]');
+  var heroSection = document.getElementById('hero');
+  var ticking = false;
+
+  if (parallaxEls.length && heroSection) {
+    function updateParallax() {
+      var scrollY = window.scrollY;
+      var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+      // Only apply parallax within the hero section range
+      if (scrollY < heroBottom) {
+        parallaxEls.forEach(function (el) {
+          // Only apply after reveal animation has completed
+          if (!el.classList.contains('visible')) { ticking = false; return; }
+          var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+          var offset = scrollY * speed;
+          el.style.transform = 'translateY(' + offset + 'px)';
+        });
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ---- Number counter animation ----
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-count-to'));
+    var decimals = parseInt(el.getAttribute('data-count-decimals'), 10) || 0;
+    var suffix = el.getAttribute('data-count-suffix') || '';
+    var prefix = el.getAttribute('data-count-prefix') || '';
+    var duration = 1600;
+    var startTime = null;
+
+    function formatNumber(num) {
+      if (num >= 1000 && decimals === 0) {
+        return num.toLocaleString('en-US');
+      }
+      return num.toFixed(decimals);
+    }
+
+    function easeOutQuart(t) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var easedProgress = easeOutQuart(progress);
+      var current = easedProgress * target;
+
+      el.textContent = prefix + formatNumber(current) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = prefix + formatNumber(target) + suffix;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var counterEls = document.querySelectorAll('.count-up');
+  if (counterEls.length) {
+    var counterObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counterEls.forEach(function (el) {
+      counterObserver.observe(el);
+    });
+  }
+
+  // ---- Progress bar fill on scroll ----
+  var scrollFillBars = document.querySelectorAll('[data-scroll-fill]');
+  if (scrollFillBars.length) {
+    var barObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var pct = entry.target.getAttribute('data-scroll-fill');
+            entry.target.style.setProperty('--fill-target', pct + '%');
+            entry.target.classList.add('scroll-filled');
+            barObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    scrollFillBars.forEach(function (bar) {
+      barObserver.observe(bar);
+    });
+  }
 
   // ---- Active nav link highlighting ----
   var sections = document.querySelectorAll('section[id]');
@@ -337,4 +475,178 @@
       input.focus();
     });
   }
+
+  // ---- Pricing Calculator ----
+  var MONTHLY_PRICE_PRO = 24;  // $ per user per month
+  var ANNUAL_DISCOUNT    = 0.20; // 20% off
+
+  var pricingSlider      = document.getElementById('userSlider');
+  var billingSwitch      = document.getElementById('billingSwitch');
+  var userCountDisplay   = document.getElementById('userCountDisplay');
+  var summaryUsers       = document.getElementById('summaryUsers');
+  var summaryTotal       = document.getElementById('summaryTotal');
+  var summaryPerUser     = document.getElementById('summaryPerUser');
+  var summaryAnnualGrp   = document.getElementById('summaryAnnualSavingsGroup');
+  var summaryAnnualSav   = document.getElementById('summaryAnnualSavings');
+  var summaryDiv3        = document.getElementById('summaryDivider3');
+  var labelMonthly       = document.getElementById('labelMonthly');
+  var labelAnnual        = document.getElementById('labelAnnual');
+  var pricePro           = document.getElementById('pricePro');
+  var periodPro          = document.getElementById('periodPro');
+  var totalLinePro       = document.getElementById('totalLinePro');
+  var savingsLinePro     = document.getElementById('savingsLinePro');
+  var totalLineEnterprise= document.getElementById('totalLineEnterprise');
+  var recStarter         = document.getElementById('recStarter');
+  var recPro             = document.getElementById('recPro');
+  var recEnterprise      = document.getElementById('recEnterprise');
+  var cardStarter        = document.getElementById('cardStarter');
+  var cardPro            = document.getElementById('cardPro');
+  var cardEnterprise     = document.getElementById('cardEnterprise');
+  var badgePro           = document.getElementById('badgePro');
+
+  if (!pricingSlider || !billingSwitch) return; // guard if section not present
+
+  var isAnnual   = false;
+  var userCount  = parseInt(pricingSlider.value, 10);
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  function flashEl(el) {
+    el.classList.remove('val-flash');
+    // Force reflow to restart animation
+    void el.offsetWidth;
+    el.classList.add('val-flash');
+  }
+
+  function flipPrice(el) {
+    el.classList.remove('price-updating');
+    void el.offsetWidth;
+    el.classList.add('price-updating');
+  }
+
+  function updateSliderFill() {
+    var min = parseInt(pricingSlider.min, 10);
+    var max = parseInt(pricingSlider.max, 10);
+    var pct = ((userCount - min) / (max - min)) * 100;
+    pricingSlider.style.setProperty('--slider-fill', pct + '%');
+    pricingSlider.style.backgroundSize = pct + '% 100%';
+  }
+
+  function getRecommended(users) {
+    if (users <= 5)  return 'starter';
+    if (users <= 50) return 'pro';
+    return 'enterprise';
+  }
+
+  function updateRecommendedBadges(rec) {
+    // Clear all
+    [recStarter, recPro, recEnterprise].forEach(function (el) {
+      el.classList.remove('pricing-recommended--visible');
+    });
+    [cardStarter, cardPro, cardEnterprise].forEach(function (card) {
+      card.classList.remove('pricing-recommended-active');
+    });
+
+    if (rec === 'starter') {
+      recStarter.classList.add('pricing-recommended--visible');
+      cardStarter.classList.add('pricing-recommended-active');
+    } else if (rec === 'pro') {
+      recPro.classList.add('pricing-recommended--visible');
+      cardPro.classList.add('pricing-recommended-active');
+      // Hide "Most Popular" badge so recommended takes its place visually
+      if (badgePro) badgePro.style.display = 'none';
+    } else {
+      recEnterprise.classList.add('pricing-recommended--visible');
+      cardEnterprise.classList.add('pricing-recommended-active');
+      if (badgePro) badgePro.style.display = '';
+    }
+  }
+
+  function updatePricing() {
+    var users = userCount;
+    var perUserMonthly = MONTHLY_PRICE_PRO;
+    var perUserPrice   = isAnnual ? perUserMonthly * (1 - ANNUAL_DISCOUNT) : perUserMonthly;
+    var totalMonthly   = perUserMonthly * users;
+    var totalPrice     = Math.round(perUserPrice * users);
+    var annualTotal    = totalPrice * 12;
+    var annualFullPrice= totalMonthly * 12;
+    var annualSavings  = annualFullPrice - annualTotal;
+
+    // User count displays
+    userCountDisplay.textContent = users.toLocaleString('en-US');
+    flashEl(userCountDisplay);
+    summaryUsers.textContent = users.toLocaleString('en-US');
+    flashEl(summaryUsers);
+
+    // Summary bar
+    summaryTotal.textContent = fmt(totalPrice);
+    flashEl(summaryTotal);
+    summaryPerUser.textContent = isAnnual
+      ? '$' + perUserPrice.toFixed(2)
+      : fmt(perUserPrice);
+    flashEl(summaryPerUser);
+
+    // Annual savings row
+    if (isAnnual) {
+      summaryAnnualGrp.style.opacity = '1';
+      summaryAnnualGrp.style.pointerEvents = '';
+      if (summaryDiv3) summaryDiv3.style.opacity = '1';
+      summaryAnnualSav.textContent = fmt(annualSavings);
+      flashEl(summaryAnnualSav);
+    } else {
+      summaryAnnualGrp.style.opacity = '0.35';
+      summaryAnnualGrp.style.pointerEvents = 'none';
+      if (summaryDiv3) summaryDiv3.style.opacity = '0.35';
+      summaryAnnualSav.textContent = fmt(Math.round(annualFullPrice * ANNUAL_DISCOUNT));
+    }
+
+    // Pro card price
+    flipPrice(pricePro);
+    if (isAnnual) {
+      pricePro.textContent = '$' + perUserPrice.toFixed(2);
+      periodPro.textContent = '/user/month';
+      totalLinePro.textContent = fmt(totalPrice) + ' / month, billed annually';
+      savingsLinePro.textContent = 'Save ' + fmt(annualSavings) + ' vs monthly';
+    } else {
+      pricePro.textContent = fmt(perUserMonthly);
+      periodPro.textContent = '/user/month';
+      totalLinePro.textContent = fmt(totalPrice) + ' / month total';
+      savingsLinePro.textContent = 'Switch to annual to save ' + fmt(Math.round(annualFullPrice * ANNUAL_DISCOUNT));
+    }
+
+    // Enterprise hint
+    if (users > 100) {
+      totalLineEnterprise.textContent = 'Volume discounts for ' + users.toLocaleString('en-US') + '+ users';
+    } else {
+      totalLineEnterprise.textContent = 'Tailored to your organization';
+    }
+
+    // Billing toggle labels
+    labelMonthly.classList.toggle('billing-label--active', !isAnnual);
+    labelAnnual.classList.toggle('billing-label--active', isAnnual);
+
+    // Recommended badge
+    updateRecommendedBadges(getRecommended(users));
+
+    // Slider fill
+    updateSliderFill();
+  }
+
+  // Slider input
+  pricingSlider.addEventListener('input', function () {
+    userCount = parseInt(pricingSlider.value, 10);
+    updatePricing();
+  });
+
+  // Billing switch
+  billingSwitch.addEventListener('click', function () {
+    isAnnual = !isAnnual;
+    billingSwitch.setAttribute('aria-checked', isAnnual ? 'true' : 'false');
+    updatePricing();
+  });
+
+  // Initialize
+  updatePricing();
 })();

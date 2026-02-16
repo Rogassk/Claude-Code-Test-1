@@ -44,8 +44,8 @@
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero">
     <div class="container hero-container">
-      <div class="hero-content">
-        <div class="hero-badge">Trusted by 10,000+ teams worldwide</div>
+      <div class="hero-content" data-reveal="slide-left">
+        <div class="hero-badge">Trusted by <span class="count-up" data-count-to="10000" data-count-suffix="+">0+</span> teams worldwide</div>
         <h1>Your workflow,<br><span class="gradient-text">supercharged by AI.</span></h1>
         <p class="hero-subtitle">
           TaskFlow AI automates your workflow, prioritizes your tasks, and keeps
@@ -64,11 +64,11 @@
             <img src="https://placehold.co/40x40/6D28D9/white?text=E" alt="Avatar of user E" class="avatar" width="40" height="40">
           </div>
           <div class="hero-proof-text">
-            <strong>4.9/5</strong> from 2,400+ reviews
+            <strong><span class="count-up" data-count-to="4.9" data-count-decimals="1">0</span>/5</strong> from <span class="count-up" data-count-to="2400" data-count-suffix="+">0+</span> reviews
           </div>
         </div>
       </div>
-      <div class="hero-visual">
+      <div class="hero-visual" data-reveal="slide-right" data-parallax="0.15">
         <img
           src="https://placehold.co/600x420/EEF2FF/6366F1?text=TaskFlow+AI+Dashboard"
           alt="TaskFlow AI dashboard showing task management interface with AI-powered suggestions"
@@ -94,6 +94,34 @@
     </div>
   </section>
 
+  <!-- ==================== METRICS STRIP ==================== -->
+  <section class="metrics-strip">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="10000" data-count-suffix="+">0+</span>
+          <span class="metric-label">Teams Worldwide</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="92"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="2" data-count-suffix="M+">0M+</span>
+          <span class="metric-label">Tasks Completed</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="87"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="99.9" data-count-suffix="%" data-count-decimals="1">0%</span>
+          <span class="metric-label">Uptime Guarantee</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="99"></div></div>
+        </div>
+        <div class="metric">
+          <span class="metric-value count-up" data-count-to="4.9" data-count-suffix="/5" data-count-decimals="1">0/5</span>
+          <span class="metric-label">Average Rating</span>
+          <div class="metric-bar"><div class="metric-bar-fill" data-scroll-fill="98"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== FEATURES ==================== -->
   <section class="features" id="features">
     <div class="container">
@@ -103,7 +131,7 @@
         <p>TaskFlow AI combines intelligent automation with intuitive design to transform how your team gets things done.</p>
       </div>
 
-      <div class="features-grid">
+      <div class="features-grid" data-stagger>
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -165,7 +193,7 @@
         <p>Getting started with TaskFlow AI is fast and straightforward. No complex setup, no lengthy onboarding.</p>
       </div>
 
-      <div class="steps-grid">
+      <div class="steps-grid" data-stagger>
         <div class="step-card">
           <div class="step-number">1</div>
           <div class="step-visual">
@@ -830,7 +858,7 @@
         <p>See what our customers have to say about transforming their workflow with TaskFlow AI.</p>
       </div>
 
-      <div class="testimonials-grid">
+      <div class="testimonials-grid" data-stagger>
         <div class="testimonial-card">
           <div class="testimonial-stars" aria-label="5 out of 5 stars">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#F59E0B" aria-hidden="true"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.51.91-5.33L2.27 6.7l5.34-.78L10 1z"/></svg>
@@ -903,17 +931,95 @@
         <p>No hidden fees. No long-term contracts. Start free and scale when you're ready.</p>
       </div>
 
-      <div class="pricing-grid">
-        <div class="pricing-card">
+      <!-- Pricing Calculator Controls -->
+      <div class="pricing-calculator" data-reveal="fade">
+
+        <!-- Billing Toggle -->
+        <div class="pricing-controls">
+          <div class="billing-toggle">
+            <span class="billing-label" id="labelMonthly">Monthly</span>
+            <button class="billing-switch" id="billingSwitch" role="switch" aria-checked="false" aria-label="Toggle annual billing">
+              <span class="billing-switch-thumb"></span>
+            </button>
+            <span class="billing-label" id="labelAnnual">
+              Annual
+              <span class="billing-save-badge" id="billingSaveBadge">Save 20%</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- User Slider -->
+        <div class="pricing-slider-section">
+          <div class="pricing-slider-header">
+            <label for="userSlider" class="pricing-slider-label">Team size</label>
+            <div class="pricing-slider-value">
+              <span id="userCountDisplay">25</span>
+              <span class="pricing-slider-unit">users</span>
+            </div>
+          </div>
+          <div class="pricing-slider-track-wrapper">
+            <input
+              type="range"
+              id="userSlider"
+              class="pricing-slider"
+              min="1"
+              max="500"
+              value="25"
+              step="1"
+              aria-label="Number of users"
+            >
+            <div class="pricing-slider-markers">
+              <span>1</span>
+              <span>50</span>
+              <span>100</span>
+              <span>250</span>
+              <span>500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Bar -->
+        <div class="pricing-summary" id="pricingSummary">
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Users</span>
+            <span class="pricing-summary-val" id="summaryUsers">25</span>
+          </div>
+          <div class="pricing-summary-divider"></div>
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Total / month</span>
+            <span class="pricing-summary-val" id="summaryTotal">$600</span>
+          </div>
+          <div class="pricing-summary-divider"></div>
+          <div class="pricing-summary-item pricing-summary-item--savings" id="summaryAnnualSavingsGroup">
+            <span class="pricing-summary-label">Annual savings</span>
+            <span class="pricing-summary-val pricing-summary-val--green" id="summaryAnnualSavings">$1,440</span>
+          </div>
+          <div class="pricing-summary-divider" id="summaryDivider3"></div>
+          <div class="pricing-summary-item">
+            <span class="pricing-summary-label">Per-user / month</span>
+            <span class="pricing-summary-val" id="summaryPerUser">$24</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid" data-stagger>
+
+        <!-- Starter -->
+        <div class="pricing-card" id="cardStarter">
+          <div class="pricing-recommended" id="recStarter" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Starter</h3>
             <p class="pricing-desc">For individuals and small teams getting started.</p>
             <div class="pricing-amount">
-              <span class="price">$0</span>
-              <span class="period">/month</span>
+              <span class="price" id="priceStarter">Free</span>
+              <span class="period" id="periodStarter"></span>
+            </div>
+            <div class="pricing-totals" id="totalsStarter">
+              <span class="pricing-total-line" id="totalLineStarter">Up to 5 users, forever free</span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresStarter">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Up to 5 team members
@@ -928,23 +1034,33 @@
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              5 GB storage
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Community support
             </li>
           </ul>
           <a href="/signup" class="btn btn-outline btn-block">Get Started Free</a>
         </div>
 
-        <div class="pricing-card pricing-card--popular">
-          <div class="pricing-badge">Most Popular</div>
+        <!-- Pro -->
+        <div class="pricing-card pricing-card--popular" id="cardPro">
+          <div class="pricing-badge" id="badgePro">Most Popular</div>
+          <div class="pricing-recommended" id="recPro" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Pro</h3>
             <p class="pricing-desc">For growing teams that need more power.</p>
             <div class="pricing-amount">
-              <span class="price">$24</span>
-              <span class="period">/user/month</span>
+              <span class="price" id="pricePro">$24</span>
+              <span class="period" id="periodPro">/user/month</span>
+            </div>
+            <div class="pricing-totals" id="totalsPro">
+              <span class="pricing-total-line" id="totalLinePro">$600 / month total</span>
+              <span class="pricing-savings-line" id="savingsLinePro"></span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresPro">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Unlimited team members
@@ -959,28 +1075,46 @@
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              100 GB storage
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Priority email support
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Advanced analytics dashboard
             </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              200+ integrations
+            </li>
           </ul>
           <a href="/signup" class="btn btn-primary btn-block">Start Free Trial</a>
         </div>
 
-        <div class="pricing-card">
+        <!-- Enterprise -->
+        <div class="pricing-card" id="cardEnterprise">
+          <div class="pricing-recommended" id="recEnterprise" aria-label="Recommended for you">Recommended for you</div>
           <div class="pricing-header">
             <h3>Enterprise</h3>
             <p class="pricing-desc">For large organizations with custom needs.</p>
             <div class="pricing-amount">
-              <span class="price">Custom</span>
+              <span class="price" id="priceEnterprise">Custom</span>
+              <span class="period" id="periodEnterprise"></span>
+            </div>
+            <div class="pricing-totals" id="totalsEnterprise">
+              <span class="pricing-total-line" id="totalLineEnterprise">Tailored to your organization</span>
             </div>
           </div>
-          <ul class="pricing-features">
+          <ul class="pricing-features" id="featuresEnterprise">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Everything in Pro
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Unlimited storage
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -997,6 +1131,10 @@
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               99.99% uptime SLA
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10l3 3 7-7" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              On-premise deployment option
             </li>
           </ul>
           <a href="#cta" class="btn btn-outline btn-block">Contact Sales</a>
@@ -1065,7 +1203,7 @@
     <div class="container">
       <div class="cta-card">
         <h2>Ready to transform your workflow?</h2>
-        <p>Join 10,000+ teams already using TaskFlow AI to ship faster and work smarter. Start your free trial today.</p>
+        <p>Join <span class="count-up" data-count-to="10000" data-count-suffix="+">0+</span> teams already using TaskFlow AI to ship faster and work smarter. Start your free trial today.</p>
         <div class="cta-actions">
           <a href="/signup" class="btn btn-white btn-lg">Start Free Trial</a>
           <a href="#" class="btn btn-ghost btn-lg">Schedule a Demo</a>

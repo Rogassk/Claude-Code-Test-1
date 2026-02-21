@@ -33,12 +33,25 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Serve client build in production
+// Serve landing page and React app in production
 if (config.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../../client/dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+  const rootDir = path.join(__dirname, '../../');
+  const clientDist = path.join(__dirname, '../../client/dist');
+
+  // Landing page static assets
+  ['styles.css', 'script.js', 'roadmap.css', 'roadmap.js'].forEach((file) => {
+    app.get(`/${file}`, (req, res) => res.sendFile(path.join(rootDir, file)));
   });
+
+  // Landing page HTML routes
+  app.get('/', (req, res) => res.sendFile(path.join(rootDir, 'index.html')));
+  app.get('/roadmap.html', (req, res) => res.sendFile(path.join(rootDir, 'roadmap.html')));
+
+  // React app static assets (JS/CSS bundles)
+  app.use(express.static(clientDist));
+
+  // All app routes → React SPA
+  app.get('*', (req, res) => res.sendFile(path.join(clientDist, 'index.html')));
 }
 
 // Global error handler
